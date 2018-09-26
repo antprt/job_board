@@ -10,5 +10,7 @@ Rails.application.routes.draw do
                sessions: 'sessions',
                registrations: 'registrations'
              }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :job_adverts, only: [:index, :create]
+
 end
