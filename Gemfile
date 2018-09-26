@@ -47,7 +47,7 @@ group :development do
   gem 'rspec-rails', '~> 3.8'
 
   #Example data
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
 end
 
 
