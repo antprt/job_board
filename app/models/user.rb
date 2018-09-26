@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :jwt_authenticatable,
          jwt_revocation_strategy: JwtBlacklist
 
+  has_many :job_advert, dependent: :destroy
+
   ROLES = ["company", "candidate"]
   enum rol: ROLES
 
