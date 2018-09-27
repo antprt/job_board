@@ -1,5 +1,13 @@
 class ApplicationController < ActionController::API
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+
+  def record_not_found
+    render json: {
+      body: 'RecordNotFound'
+    }, status: 404
+  end
   
   #Render JSON with response for a single object
   def render_resource(resource)
@@ -25,7 +33,7 @@ class ApplicationController < ActionController::API
   end
 
   #If it isn't user authenticated return 401 or if it isn't brand authenticated return 403
-  def authenticate_brand!
+  def authenticate_company!
     authenticate_user!
     unless current_user.rol == "company"
       render json: {
