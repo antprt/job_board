@@ -1,5 +1,5 @@
 class JobAdvertsController < ApplicationController
-  before_action :authenticate_brand!, only: [:create]
+  before_action :authenticate_company!, only: [:create]
   before_action :authenticate_candidate!, only: [:index]
 
   # POST /job_adverts
