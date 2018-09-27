@@ -154,12 +154,10 @@ RSpec.describe "Applies", type: :request do
 
     context "When user is a candidate" do
       it "Return 403" do 
-        debugger
         @token = login(user_candidate)
         job_advert = FactoryBot.create(:job_advert, user: user_company)
         apply = FactoryBot.create(:apply, job_advert: job_advert)
         put apply_path(id: apply.id), params: valid_attributes, headers: {"Authorization": "#{@token}", "Accept": "application/json"}
-        debugger
         expect(response).to have_http_status(403)
       end
     end
