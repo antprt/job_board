@@ -31,7 +31,6 @@ RSpec.describe 'POST /signup', type: :request do
     end
 
     it 'returns bad request status' do
-      debugger
       expect(response.status).to eq 400
     end
 
