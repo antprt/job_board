@@ -14,11 +14,12 @@ ActiveRecord::Schema.define(version: 2018_09_26_170952) do
 
   create_table "applies", force: :cascade do |t|
     t.integer "status"
-    t.boolean "highlight"
+    t.boolean "highlight", default: false
     t.integer "user_id"
     t.integer "job_advert_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["job_advert_id", "user_id"], name: "job_advert_user", unique: true
     t.index ["job_advert_id"], name: "index_applies_on_job_advert_id"
     t.index ["user_id"], name: "index_applies_on_user_id"
   end
