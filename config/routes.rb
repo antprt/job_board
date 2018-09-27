@@ -12,5 +12,5 @@ Rails.application.routes.draw do
              }
 
   resources :job_adverts, only: [:index, :create]
-
+  resources :applies, except: [:destroy]
 end
